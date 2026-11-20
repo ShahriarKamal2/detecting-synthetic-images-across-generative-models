@@ -1,0 +1,28 @@
+# Python/Jupyter
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+.env
+.env.*
+.DS_Store
+
+# Large datasets, downloaded archives, and model weights
+/data/
+/datasets/
+/checkpoints/
+/models/
+/kaggle/
+/tmp/
+*.pth
+*.pt
+*.ckpt
+*.zip
+*.tar
+*.tar.gz
+
+# Generated model artifacts and scratch files
+progress.txt
+task2_results.json
+best_model_meta.json
