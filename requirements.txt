@@ -1,0 +1,11 @@
+# Packages imported by the two research notebooks.
+# Original experiment package versions were not captured; pin tested versions after reproducing.
+torch
+torchvision
+numpy
+scikit-learn
+Pillow
+tqdm
+matplotlib
+requests
+jupyter
