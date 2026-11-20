@@ -1,0 +1,222 @@
+Started. Device=cuda  working=20.9GB tmp=1310.5GB sys_tmp=1310.5GB
+Model: PiD+Signal + Custom CNN (unchanged architecture)
+Improvements: OneCycleLR + label smoothing + mixup + balanced test subsets
+
+=== STEP 1: Download ProGAN training data ===
+  Downloading train/car.zip  (working=20.9GB tmp=1310.5GB sys_tmp=1310.5GB)
+  Extracting ...  (working=20.9GB tmp=1306.8GB sys_tmp=1306.8GB)
+  Done  (working=20.9GB tmp=1306.7GB sys_tmp=1306.7GB)
+  car: 18003 real, 18003 fake
+  Downloading train/cat.zip  (working=20.9GB tmp=1306.7GB sys_tmp=1306.7GB)
+  Extracting ...  (working=20.9GB tmp=1303.0GB sys_tmp=1303.0GB)
+  Done  (working=20.9GB tmp=1302.9GB sys_tmp=1302.9GB)
+  cat: 18003 real, 18003 fake
+  Downloading train/chair.zip  (working=20.9GB tmp=1302.9GB sys_tmp=1302.9GB)
+  Extracting ...  (working=20.9GB tmp=1299.7GB sys_tmp=1299.7GB)
+  Done  (working=20.9GB tmp=1299.6GB sys_tmp=1299.6GB)
+  chair: 18003 real, 18003 fake
+  Downloading train/horse.zip  (working=20.9GB tmp=1299.6GB sys_tmp=1299.6GB)
+  Extracting ...  (working=20.9GB tmp=1295.5GB sys_tmp=1295.5GB)
+  Done  (working=20.9GB tmp=1295.4GB sys_tmp=1295.4GB)
+  horse: 18003 real, 18003 fake
+Total: 72012 real, 72012 fake
+
+=== STEP 2: Train ===
+Train: 115218  Val: 28806
+Parameters: 1,635,970
+Training from scratch
+Epoch 01 | Val Acc: 0.5183 | LR: 2.80e-04
+  New best: 0.5183
+Epoch 02 | Val Acc: 0.5206 | LR: 7.60e-04
+  New best: 0.5206
+Epoch 03 | Val Acc: 0.5217 | LR: 1.00e-03
+  New best: 0.5217
+Epoch 04 | Val Acc: 0.6870 | LR: 9.97e-04
+  New best: 0.6870
+Epoch 05 | Val Acc: 0.9242 | LR: 9.87e-04
+  New best: 0.9242
+  Checkpoint saved (epoch 5)
+Epoch 06 | Val Acc: 0.9282 | LR: 9.70e-04
+  New best: 0.9282
+Epoch 07 | Val Acc: 0.9893 | LR: 9.47e-04
+  New best: 0.9893
+Epoch 08 | Val Acc: 0.9909 | LR: 9.18e-04
+  New best: 0.9909
+Epoch 09 | Val Acc: 0.9843 | LR: 8.83e-04
+Epoch 10 | Val Acc: 0.9800 | LR: 8.43e-04
+  Checkpoint saved (epoch 10)
+Epoch 11 | Val Acc: 0.9897 | LR: 7.99e-04
+Epoch 12 | Val Acc: 0.9456 | LR: 7.50e-04
+Epoch 13 | Val Acc: 0.9631 | LR: 6.98e-04
+Epoch 14 | Val Acc: 0.9956 | LR: 6.43e-04
+  New best: 0.9956
+Epoch 15 | Val Acc: 0.9878 | LR: 5.87e-04
+  Checkpoint saved (epoch 15)
+Epoch 16 | Val Acc: 0.9963 | LR: 5.29e-04
+  New best: 0.9963
+Epoch 17 | Val Acc: 0.9968 | LR: 4.71e-04
+  New best: 0.9968
+Epoch 18 | Val Acc: 0.9951 | LR: 4.13e-04
+Epoch 19 | Val Acc: 0.9968 | LR: 3.57e-04
+Epoch 20 | Val Acc: 0.9982 | LR: 3.02e-04
+  New best: 0.9982
+  Checkpoint saved (epoch 20)
+Epoch 21 | Val Acc: 0.9982 | LR: 2.50e-04
+Epoch 22 | Val Acc: 0.9954 | LR: 2.01e-04
+Epoch 23 | Val Acc: 0.9983 | LR: 1.57e-04
+  New best: 0.9983
+Epoch 24 | Val Acc: 0.9987 | LR: 1.17e-04
+  New best: 0.9987
+Epoch 25 | Val Acc: 0.9987 | LR: 8.22e-05
+  Checkpoint saved (epoch 25)
+Epoch 26 | Val Acc: 0.9993 | LR: 5.32e-05
+  New best: 0.9993
+Epoch 27 | Val Acc: 0.9984 | LR: 3.01e-05
+Epoch 28 | Val Acc: 0.9981 | LR: 1.35e-05
+Epoch 29 | Val Acc: 0.9987 | LR: 3.38e-06
+Epoch 30 | Val Acc: 0.9991 | LR: 4.00e-09
+  Checkpoint saved (epoch 30)
+  Checkpoint saved (epoch 30)
+Training done. Best Val Acc: 0.9993
+
+=== STEP 3: Free training data ===
+working=20.9GB tmp=1310.5GB sys_tmp=1310.5GB
+
+=== STEP 4: Task 2 Robustness Assessment ===
+Protocol: JPEG(q=50), GaussNoise(sigma=4), UpDown(2x nearest)
+
+--- ProGAN ---
+  Downloading test/ProGAN.zip  (working=20.9GB tmp=1310.5GB sys_tmp=1310.5GB)
+  Extracting ...  (working=20.9GB tmp=1309.6GB sys_tmp=1309.6GB)
+  Done  (working=20.9GB tmp=1309.6GB sys_tmp=1309.6GB)
+  n=500 real + 500 fake
+  origin    Acc=99.6%  R.Acc=100.0%  F.Acc=99.2%
+  jpeg      Acc=50.0%  R.Acc=100.0%  F.Acc=0.0%
+  noise     Acc=49.9%  R.Acc=17.4%  F.Acc=82.4%
+  updown    Acc=82.1%  R.Acc=99.4%  F.Acc=64.8%
+  Saved (1 subsets done)
+  Cleaned  (working=20.9GB tmp=1310.5GB sys_tmp=1310.5GB)
+
+--- WFIR ---
+  Downloading test/WFIR.zip  (working=20.9GB tmp=1310.5GB sys_tmp=1310.5GB)
+  Extracting ...  (working=20.9GB tmp=1309.7GB sys_tmp=1309.7GB)
+  Done  (working=20.9GB tmp=1309.7GB sys_tmp=1309.7GB)
+  n=500 real + 500 fake
+  origin    Acc=62.7%  R.Acc=26.2%  F.Acc=99.2%
+  jpeg      Acc=50.0%  R.Acc=100.0%  F.Acc=0.0%
+  noise     Acc=50.4%  R.Acc=22.6%  F.Acc=78.2%
+  updown    Acc=65.8%  R.Acc=49.4%  F.Acc=82.2%
+  Saved (2 subsets done)
+  Cleaned  (working=20.9GB tmp=1310.5GB sys_tmp=1310.5GB)
+
+--- R3GAN ---
+  Downloading test/R3GAN.zip  (working=20.9GB tmp=1310.5GB sys_tmp=1310.5GB)
+  Extracting ...  (working=20.9GB tmp=1307.4GB sys_tmp=1307.4GB)
+  Done  (working=20.9GB tmp=1307.3GB sys_tmp=1307.3GB)
+  n=500 real + 500 fake
+  origin    Acc=72.4%  R.Acc=44.8%  F.Acc=100.0%
+  jpeg      Acc=50.0%  R.Acc=100.0%  F.Acc=0.0%
+  noise     Acc=50.9%  R.Acc=24.0%  F.Acc=77.8%
+  updown    Acc=74.5%  R.Acc=69.6%  F.Acc=79.4%
+  Saved (3 subsets done)
+  Cleaned  (working=20.9GB tmp=1310.5GB sys_tmp=1310.5GB)
+
+--- GLIDE ---
+  Downloading test/GLIDE.zip  (working=20.9GB tmp=1310.5GB sys_tmp=1310.5GB)
+  Extracting ...  (working=20.9GB tmp=1308.1GB sys_tmp=1308.1GB)
+  Done  (working=20.9GB tmp=1308.1GB sys_tmp=1308.1GB)
+  n=500 real + 500 fake
+  origin    Acc=67.1%  R.Acc=49.8%  F.Acc=84.4%
+  jpeg      Acc=50.0%  R.Acc=100.0%  F.Acc=0.0%
+  noise     Acc=40.7%  R.Acc=20.8%  F.Acc=60.6%
+  updown    Acc=55.2%  R.Acc=71.8%  F.Acc=38.6%
+  Saved (4 subsets done)
+  Cleaned  (working=20.9GB tmp=1310.5GB sys_tmp=1310.5GB)
+
+--- DALLE-3 ---
+  Downloading test/DALLE-3.zip  (working=20.9GB tmp=1310.5GB sys_tmp=1310.5GB)
+  Extracting ...  (working=20.9GB tmp=1301.5GB sys_tmp=1301.5GB)
+  Done  (working=20.9GB tmp=1301.5GB sys_tmp=1301.5GB)
+  n=500 real + 500 fake
+  origin    Acc=55.5%  R.Acc=49.0%  F.Acc=62.0%
+  jpeg      Acc=50.0%  R.Acc=100.0%  F.Acc=0.0%
+  noise     Acc=55.7%  R.Acc=21.4%  F.Acc=90.0%
+  updown    Acc=60.8%  R.Acc=73.4%  F.Acc=48.2%
+  Saved (5 subsets done)
+  Cleaned  (working=20.9GB tmp=1310.5GB sys_tmp=1310.5GB)
+
+--- BlendFace ---
+  Downloading test/BlendFace.zip  (working=20.9GB tmp=1310.5GB sys_tmp=1310.5GB)
+  Extracting ...  (working=20.9GB tmp=1306.0GB sys_tmp=1306.0GB)
+  Done  (working=20.9GB tmp=1306.0GB sys_tmp=1306.0GB)
+  n=500 real + 500 fake
+  origin    Acc=17.5%  R.Acc=34.4%  F.Acc=0.6%
+  jpeg      Acc=50.0%  R.Acc=100.0%  F.Acc=0.0%
+  noise     Acc=29.8%  R.Acc=23.6%  F.Acc=36.0%
+  updown    Acc=30.3%  R.Acc=60.0%  F.Acc=0.6%
+  Saved (6 subsets done)
+  Cleaned  (working=20.9GB tmp=1310.5GB sys_tmp=1310.5GB)
+
+--- FaceSwap ---
+  Downloading test/FaceSwap.zip  (working=20.9GB tmp=1310.5GB sys_tmp=1310.5GB)
+  Extracting ...  (working=20.9GB tmp=1308.2GB sys_tmp=1308.2GB)
+  Done  (working=20.9GB tmp=1308.2GB sys_tmp=1308.2GB)
+  n=500 real + 500 fake
+  origin    Acc=25.0%  R.Acc=48.4%  F.Acc=1.6%
+  jpeg      Acc=50.0%  R.Acc=100.0%  F.Acc=0.0%
+  noise     Acc=24.1%  R.Acc=18.0%  F.Acc=30.2%
+  updown    Acc=38.8%  R.Acc=75.0%  F.Acc=2.6%
+  Saved (7 subsets done)
+  Cleaned  (working=20.9GB tmp=1310.5GB sys_tmp=1310.5GB)
+
+--- BLIP ---
+  Downloading test/BLIP.zip  (working=20.9GB tmp=1310.5GB sys_tmp=1310.5GB)
+  Extracting ...  (working=20.9GB tmp=1307.9GB sys_tmp=1307.9GB)
+  Done  (working=20.9GB tmp=1307.9GB sys_tmp=1307.9GB)
+  n=500 real + 500 fake
+  origin    Acc=82.6%  R.Acc=65.4%  F.Acc=99.8%
+  jpeg      Acc=50.0%  R.Acc=100.0%  F.Acc=0.0%
+  noise     Acc=56.0%  R.Acc=19.2%  F.Acc=92.8%
+  updown    Acc=71.2%  R.Acc=82.6%  F.Acc=59.8%
+  Saved (8 subsets done)
+  Cleaned  (working=20.9GB tmp=1310.5GB sys_tmp=1310.5GB)
+
+======================================================================
+  TASK 2 RESULTS \'e2\'80\'94 PiD+Signal + Custom CNN (improved training)
+  OneCycleLR + LabelSmoothing(0.1) + Mixup(0.2) + GradClip
+  Training: Setting-I (ProGAN 72K) | Compare: Table 10
+======================================================================
+
+Subset       |   Origin |     JPEG |    Noise |   UpDown
+----------------------------------------------------------
+ProGAN       |     99.6 |     50.0 |     49.9 |     82.1
+WFIR         |     62.7 |     50.0 |     50.4 |     65.8
+R3GAN        |     72.4 |     50.0 |     50.9 |     74.5
+GLIDE        |     67.1 |     50.0 |     40.7 |     55.2
+DALLE-3      |     55.5 |     50.0 |     55.7 |     60.8
+BlendFace    |     17.5 |     50.0 |     29.8 |     30.3
+FaceSwap     |     25.0 |     50.0 |     24.1 |     38.8
+BLIP         |     82.6 |     50.0 |     56.0 |     71.2
+
+Degradation |   R.Acc |   F.Acc |     Acc
+------------------------------------------
+origin     |    52.2 |    68.3 |    60.3
+jpeg       |   100.0 |     0.0 |    50.0
+noise      |    20.9 |    68.5 |    44.7
+updown     |    72.7 |    47.0 |    59.8
+==========================================
+
+--- Paper Table 10 Setting-I + Your Methods ---
+Method                       |   Origin |     JPEG |    Noise |   UpDown |     Mean
+--------------------------------------------------------------------------------
+ResNet-50 (paper)            |     59.2 |     50.2 |     56.9 |     63.5 |     57.5
+CLIPDetection                |     63.3 |     58.4 |     57.4 |     57.0 |     59.0
+NPR                          |     68.2 |     50.1 |     55.5 |     67.7 |     60.4
+DFFreq                       |     69.2 |     50.3 |     67.6 |     66.5 |     63.4
+SAFE                         |     79.2 |     50.1 |     67.0 |     58.2 |     63.6
+PiD+CNN baseline             |     47.5 |     50.0 |     40.9 |     45.6 |     46.0
+--------------------------------------------------------------------------------
+PiD+CNN improved (ours)      |     60.3 |     50.0 |     44.7 |     59.8 |     53.7
+
+Results: /kaggle/working/task2_results.json
+ALL DONE

@@ -1,0 +1,10 @@
+subset,original_accuracy_percent,jpeg_q50_accuracy_percent,gaussian_noise_sigma4_accuracy_percent,updown_2x_nearest_accuracy_percent
+ProGAN,99.6,50.0,49.9,82.1
+WFIR,62.7,50.0,50.4,65.8
+R3GAN,72.4,50.0,50.9,74.5
+GLIDE,67.1,50.0,40.7,55.2
+DALLE-3,55.5,50.0,55.7,60.8
+BlendFace,17.5,50.0,29.8,30.3
+FaceSwap,25.0,50.0,24.1,38.8
+BLIP,82.6,50.0,56.0,71.2
+mean,60.3,50.0,44.7,59.8
