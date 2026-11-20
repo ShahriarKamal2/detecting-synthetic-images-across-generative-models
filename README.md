@@ -72,7 +72,7 @@ detecting-synthetic-images-across-generative-models/
 ├── docs/
 │   ├── DATASETS_AND_REPRODUCIBILITY.md
 │   ├── REFERENCES.md
-│   └── UPLOAD_TO_GITHUB.md
+│ 
 ├── requirements.txt
 └── .gitignore
 ```
