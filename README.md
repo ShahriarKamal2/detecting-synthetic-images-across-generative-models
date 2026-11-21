@@ -55,7 +55,7 @@ Some subsets were substantially more difficult than others (e.g., BlendFace and 
 
 For per-subset figures see [Phase 02 results](results/phase-02/subset_accuracy.csv).
 
-## Repository structure
+## Repository structure:
 
 ```text
 detecting-synthetic-images-across-generative-models/
@@ -77,7 +77,7 @@ detecting-synthetic-images-across-generative-models/
 └── .gitignore
 ```
 
-## Getting started
+## Getting started:
 
 ```bash
 git clone https://github.com/<your-username>/detecting-synthetic-images-across-generative-models.git
